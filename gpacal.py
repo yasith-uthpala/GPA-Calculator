@@ -38,14 +38,23 @@ def get_degree_class(gpa):
 
 def main():
     print("GPA Calculator CLI")
-    print("This tool will calculate GPA for university students.\n")
+    print("------------------")
 
-    # Temporary test data
-    grades = ["A", "B+"]
-    credits = [3, 3]
+    num_subjects = int(input("Enter number of subjects: "))
+
+    grades = []
+    credits = []
+
+    for i in range(num_subjects):
+        grade = input(f"Enter grade for subject {i+1}: ").strip().upper()
+        credit = float(input(f"Enter credits for subject {i+1}: "))
+
+        grades.append(grade)
+        credits.append(credit)
 
     gpa = calculate_gpa(grades, credits)
-    print("Sample GPA:", round(gpa, 3))
+
+    print("\nFinal GPA:", round(gpa, 3))
     print("Degree Class:", get_degree_class(gpa))
 
 
